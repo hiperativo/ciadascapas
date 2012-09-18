@@ -1,0 +1,41 @@
+.row
+	.span6
+		= image_tag "#{@category.permalink}.png", :class => "foto span6", :size => "420x360"
+	
+	.span6
+		%h1.page-header #{@category.name}
+
+		:markdown
+			#{@category.description}
+
+		.btn-group
+			= link_to "Quero entrar em contato!", "/contato", :class => "btn btn-primary"
+		
+		.page-header
+
+		= render "shared/tags"
+
+.row
+	.span12
+		- unless @fotos.blank?
+			%h2.page-header Fotos
+			- for subcategory in @category.subcategories
+				%h3.page-header= subcategory.name
+				%ul.fotos.thumbnails
+					- for product in subcategory.products #@fotos
+						- unless product.photo_url.blank?
+							%li.span3
+								= link_to product.photo_url(:big), :class => "thumbnail" do
+									= image_tag product.photo_url(:thumb), "data-tooltip" => product.hint, :alt => product.keywords
+									- unless product.label.blank?
+										.caption= product.label
+
+			- unless @category.subcategories.empty?
+				%h3.page-header Outras fotos
+			%ul.thumbnails
+				- for product in @category.products.where(:subcategory_id => nil)
+					%li.span3
+						= link_to product.photo_url(:big), :class => "thumbnail" do
+							= image_tag product.photo_url(:thumb), "data-tooltip" => product.hint, :alt => product.keywords
+							- unless product.label.blank?
+								.caption= product.label

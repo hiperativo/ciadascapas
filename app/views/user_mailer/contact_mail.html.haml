@@ -1,0 +1,17 @@
+:markdown
+	**Nome:** #{@usuario.name}  
+	**Cidade:** #{@usuario.city}  
+	**Estado:** #{@usuario.state}  
+	**E-mail:** #{@usuario.email}  
+
+- unless @usuario.profundidade_do_sofa.blank?
+	:markdown
+		**Medidas do Sofá**
+		
+		**Altura do Sofá:** #{@usuario.profundidade_do_sofa unless @usuario.profundidade_do_sofa.nil?}  
+		**Largura do assento:** #{@usuario.largura_do_braco unless @usuario.largura_do_braco.nil?}  
+		**Largura do braço:** #{@usuario.largura_do_assento unless @usuario.largura_do_assento.nil?}  
+		**Profundidade do sofá:** #{@usuario.altura_do_sofa unless @usuario.altura_do_sofa.nil?}  
+
+:markdown
+	#{@usuario.message}
