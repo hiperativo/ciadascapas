@@ -1,7 +1,7 @@
 class UserMailer < ActionMailer::Base
-  default :from => "contato@capasparasofa.com.br"
+  default :from => "#{ENV['EMAIL_LOGIN']}@#{ENV['EMAIL_DOMAIN']}"
   def contact_mail(usuario)
   	@usuario = usuario
-  	mail(:to=>"contato@capasparasofa.com.br", :subject=>"Mensagem enviada pelo usuario", :reply_to => @usuario.email)
+  	mail(:to=>"#{EMAIL_RECEIVER}", :subject=>"Mensagem enviada pelo usuario", :reply_to => @usuario.email)
   end
 end

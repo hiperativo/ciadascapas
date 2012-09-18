@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ProdutosController < ApplicationController
 	def show
 		@category = Category.find_by_permalink params[:category]

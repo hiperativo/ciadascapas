@@ -1,3 +1,4 @@
+# encoding: utf-8
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
@@ -9,7 +10,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-module Ciadascapas
+module CiaDasCapas
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -55,7 +56,7 @@ module Ciadascapas
 
     # Enable the asset pipeline
     config.assets.enabled = true
-
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
   end

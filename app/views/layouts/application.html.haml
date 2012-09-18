@@ -1,3 +1,4 @@
+-# encoding: utf-8
 -# @endereco = "http://maps.google.com/maps/api/staticmap?center=Av.%20dos%20Eucaliptos,%20800%20-%20Moema&zoom=17&size=960x600&maptype=roadmap&markers=color:blue%7Clabel:Cia+das+Capas|-23.60983,-46.669328&sensor=false"
 
 - @endereco = "http://maps.google.com/?q=Avenida dos Eucaliptos, 800 — Moema — São Paulo/SP"
@@ -10,11 +11,10 @@
 		
 		%meta(name="google-site-verification" content="dP9qonr4iAN-oabrIx_Nl4WTpKH6pbH15tC3PjMFDIg")
 		%meta{:name => "description", :content => "Capas para sofá de sarja, stretch e jacquard. Almofadas, cortinas. Tecidos impermeáveis em moema"}
-		%meta{:name => "keywords", :content => "Capas, capa, sofá, sarja, stretch, jacquard, tecidos impermeáveis, cortina, cortinas, Moema"}
 		%meta{:name => "content-type", :content => "text/html;charset=utf-8"}
 
-		= stylesheet_link_tag "bootstrap", "stylesheet", "fancybox"
-		= coffeescript_include_tag :defaults, "jquery-ui.min", "easing", "fancybox", "analytics"
+		= stylesheet_link_tag "application"# "bootstrap", "stylesheet", "fancybox"
+		= javascript_include_tag "application"#, "jquery-ui.min", "easing", "fancybox", "analytics"
 		= csrf_meta_tag		
 
 	%body

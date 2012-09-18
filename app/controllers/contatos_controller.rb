@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ContatosController < ApplicationController
 	def new
 		@incluiu_medidas = false

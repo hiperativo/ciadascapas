@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module ApplicationHelper
 	def icon(thing)
 		hamly "%i{:class => 'icon-#{thing}'}"

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 ActiveAdmin.register Tag do
 	index do
 		column :name

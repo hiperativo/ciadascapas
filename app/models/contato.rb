@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Contato < ActiveRecord::Base
 	validates :name, :presence => 		{:message => "Digite seu nome"}
 	 validates :email, :presence => 		{:message => "Digite seu email"}
