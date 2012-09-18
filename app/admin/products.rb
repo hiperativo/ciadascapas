@@ -8,16 +8,12 @@ ActiveAdmin.register Product do
 			mytags.join ", "
 		end
 
-		column "Categorias" do |category|
+		column "Categorias" do |product|
 			mycategories = []
 			for category in product.categories do
 				mycategories += [category.name]
 			end
 			mycategories.join ", "
-		end
-
-		column "Sub-categoria" do |category|
-			product.subcategory
 		end
 
 		column "Foto" do |product|
