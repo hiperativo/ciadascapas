@@ -13,6 +13,8 @@ class Contato < ActiveRecord::Base
 		medida.validates :largura_do_assento, 	:presence => {:message => "Informe a largura do assento"}
 	end
 
+	attr_accessible :name, :city, :state, :cep, :message, :telephone, :email, :incluir_medidas, :profundidade_do_sofa, :largura_do_braco, :largura_do_assento, :altura_do_sofa
+
 	def incluiu_medidas?
 		self.incluir_medidas
 	end

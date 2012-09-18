@@ -9,6 +9,8 @@ class Category < ActiveRecord::Base
 
 	before_save :add_permalink
 
+	attr_accessible :name, :sort, :permalink, :description
+
 	def add_permalink
 		self.permalink = self.name.parameterize if self.permalink.blank?
 	end

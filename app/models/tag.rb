@@ -5,6 +5,8 @@ class Tag < ActiveRecord::Base
 
 	attr_accessor :purposes
 
+	attr_accessible :name, :description, :purpose, :permalink
+
 	private
 
 	def self.purposes

@@ -11,6 +11,8 @@ class Product < ActiveRecord::Base
 
 	attr_accessor :keywords, :hint
 
+	attr_accessible :name, :description, :photo, :category_id, :label, :subcategory_id
+
 	def keywords
 		self.keywords = "#{self.categories.collect(&:name)}. #{self.hint}" || ""
 	end
