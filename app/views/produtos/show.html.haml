@@ -19,7 +19,7 @@
 	.span12
 		- unless @fotos.blank?
 			%h2.page-header Fotos
-			- for subcategory in @category.subcategories
+			- for subcategory in @category.subcategories.includes(products: [:tags, :categories])
 				%h3.page-header= subcategory.name
 				%ul.fotos.thumbnails
 					- for product in subcategory.products #@fotos
@@ -33,7 +33,7 @@
 			- unless @category.subcategories.empty?
 				%h3.page-header Outras fotos
 			%ul.thumbnails
-				- for product in @category.products.where(:subcategory_id => nil)
+				- for product in @category.products.where(:subcategory_id => nil).includes(:tags, :categories)
 					%li.span3
 						= link_to product.photo_url(:big), :class => "thumbnail" do
 							= image_tag product.photo_url(:thumb), "data-tooltip" => product.hint, :alt => product.keywords

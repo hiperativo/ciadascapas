@@ -10,7 +10,8 @@ class Tag < ActiveRecord::Base
 	private
 
 	def self.purposes
-		group(:purpose).collect(&:purpose)
+		#group("purpose").
+		select("DISTINCT purpose").collect(&:purpose)
 	end
 	
 	before_save :add_permalink
