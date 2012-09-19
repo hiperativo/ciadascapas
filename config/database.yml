@@ -1,10 +1,20 @@
+# development:
+#   adapter: sqlite3
+#   database: db/development.sqlite3
+#   pool: 5
+#   timeout: 5000
+
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: postgresql
+  database: ciadascapas
+  host: localhost
+
+test:
+  adapter: postgresql
+  database: ciadascapas
+  host: localhost
 
 production:
   adapter: postgresql
-  database: qjp
+  database: ciadascapas
   host: localhost

@@ -1,7 +1,8 @@
 # encoding: utf-8
 class ProdutosController < ApplicationController
 	def show
-		@category = Category.find_by_permalink params[:category]
+		@category = Category.find_by_permalink(params[:category]);
+		# @category = Category.where(permalink: params[:category]).includes(products: [:tags, :categories], subcategories: {products: [:tags, :categories]}).first()
 		@tags = @category.tags
 		@fotos = @category.products & ( @tag.blank? ? @category.products : @tag.products)
 
