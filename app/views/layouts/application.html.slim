@@ -1,0 +1,12 @@
+doctype html
+html
+	head
+		title Capas para sofá – Loja localizada em Moema
+		= stylesheet_link_tag "application"
+		= javascript_include_tag "application"
+	body
+		header
+			= image_tag "logo-cia-das-capas-negativo.png", height: 60
+		section class=(@content_class)
+			= yield
+		footer

@@ -1,0 +1,52 @@
+//= require_self
+//= require_tree .
+//= require bootstrap
+
+$black: #000
+$white: #fff
+
+body
+	:text-align left
+	// :padding 40px 0
+
+	> *
+		:padding 20px
+	
+	> section
+		&.full
+			:color $white
+			:position absolute
+			:z-index -1
+			:padding 0
+			:background-color $black
+			:height 100%
+			:width 100%
+			:overflow hidden
+			:top 0
+
+		img
+			:width 100%
+
+	> header
+
+.headline
+	:padding-left 40px
+	:width 650px
+	:left 40%
+	:top 40%
+	:position absolute
+	:z-index 1
+
+	h1
+		:margin-left -40px
+		:text-shadow 1px 1px 1px $black
+		:text-align left
+		:font-weight lighter
+		:color $white
+		:text-indent 40px
+
+	p
+		:font-weight lighter
+		:text-shadow 1px 1px 1px $black
+		:width 80%
+		:font-size 20px
