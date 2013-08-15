@@ -1,6 +1,6 @@
-%h1.sem-adorno 
+h1.sem-adorno 
 	= link_to @category.name, "/galeria/#{@category.permalink}"
-	%span.tag
+	span.tag
 		= "/ #{@tag.name}" unless @tag.blank?
 .painel
 	.tags
@@ -11,4 +11,4 @@
 				= link_to produto.photo_url(:big), :class => "foto-produto fancy" do
 					= image_tag produto.photo_url(:thumb), "data-tooltip" => produto.hint, :alt => produto.keywords
 		- else
-			%p Não existem fotos deste produto no momento. #{link_to "Ver todas as #{@category.name.downcase}", "/galeria/#{@category.permalink}"}.
+			p Não existem fotos deste produto no momento. #{link_to "Ver todas as #{@category.name.downcase}", "/galeria/#{@category.permalink}"}.

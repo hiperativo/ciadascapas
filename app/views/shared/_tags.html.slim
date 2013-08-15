@@ -1,7 +1,7 @@
 - for purpose in @tags.purposes do
-	%dl 
-		%dt 
+	dl 
+		dt 
 			#{purpose}:
 			- for tag in Tag.where(:purpose => purpose) do
 				- unless ([tag] & @tags).empty?
-					%dd= tag.name.titleize
+					dd= tag.name.titleize

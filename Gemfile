@@ -1,48 +1,33 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+ruby "2.0.0"
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rails', '4.0.0'
 
+# heroku basics 
 gem 'pg'
 gem 'thin'
-gem 'rmagick'
+
+# template handling
 gem 'simple_form'
-gem 'activeadmin'
 gem 'bluecloth'
 gem 'haml-rails'
-gem 'carrierwave'
-
-group :development do
-	gem 'rack-mini-profiler'
-	gem 'bullet'
-end
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
-end
-
+gem 'sass-rails'
+gem 'slim-rails'
+gem 'turbolinks'
+gem 'uglifier', '>= 1.0.3'
 gem 'jquery-rails'
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'jquery-ui-rails'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+# data processing
+gem 'rmagick'
+gem 'carrierwave'
+gem 'maruku'
+gem 'bourbon'	
 
-# Use unicorn as the app server
-# gem 'unicorn'
+gem "activerecord-session_store"
+gem "protected_attributes"
 
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
+# administration
+gem 'devise', "~>3.0.0.rc"
+gem 'rails_admin', "~> 0.5.0"

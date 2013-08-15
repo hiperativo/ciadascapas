@@ -1,7 +1,9 @@
+//=require turbolinks
 //=require jquery
-//=require jquery-ui
+//=require jquery.ui.all
 //=require easing
 //=require cycle
 //=require easing
 //=require fancybox
+//=require bootstrap
 //=require main

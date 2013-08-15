@@ -1,27 +1,27 @@
 .row
-	.span12
+	.col-12
 		= image_tag "slide.png"
 .row
-	.span4
-		%h2.page-header Seja bem-vindo
+	.col-4
+		h2.page-header Seja bem-vindo
 		.descricao
-			:markdown		
+			markdown:
 				No mercado há mais de 13 anos, a Cia das Capas preza pela beleza e a qualidade de seus produtos que em conjunto fazem da sua casa ou escritório um lugar aconchegante e moderno. 
 
 				Para nós cada cliente é único. Portanto nossa preocupação é ver a sua satisfação em primeiro lugar. Nossos produtos oferecem diversas opções de personalização para deixar o seu ambiente com a sua cara.
 
 			= link_to "Ver Capas", "/capas-para-sofa", :class => "btn btn-primary"
 
-	.span4
-		%h2.page-header Exclusivos
-		%ul.nav.nav-tabs.nav-stacked
-			%li= link_to "Sarja modelada", "/capas-para-sofa"
-			%li= link_to "Stretch Sob-medida", "/capas-para-sofa"
-			%li= link_to "Capas para Sofá Grande", "/capas-para-sofa"
-			%li= link_to "Cortinas sob-medida customizadas", "/cortinas"
+	.col-4
+		h2.page-header Exclusivos
+		ul.nav.nav-tabs.nav-stacked
+			li= link_to "Sarja modelada", "/capas-para-sofa"
+			li= link_to "Stretch Sob-medida", "/capas-para-sofa"
+			li= link_to "Capas para Sofá Grande", "/capas-para-sofa"
+			li= link_to "Cortinas sob-medida customizadas", "/cortinas"
 	
-	.span4
-		%h2.page-header Aqui você encontra
-		%ul.nav.nav-tabs.nav-stacked
+	.col-4
+		h2.page-header Aqui você encontra
+		ul.nav.nav-tabs.nav-stacked
 			- for produto in Category.all do
-				%li= link_to produto.name, "/#{produto.permalink}"
+				li= link_to produto.name, "/#{produto.permalink}"
