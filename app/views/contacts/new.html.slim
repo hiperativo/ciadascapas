@@ -1,0 +1,9 @@
+header: h2 Contato
+p Por favor, preencha os campos abaixo.
+
+.row
+	.col-xs-6
+		= simple_form_for Contact.new do |f|
+			= f.input :name, input_html: {class: "form-control"}, label: "Seu nome"
+			= f.input :email, input_html: {class: "form-control"}, label: "Seu e-mail (para entrarmos em contato)"
+			= f.input :message, input_html: {class: "form-control", rows: 10}, label: "Sua mensagem, dúvida ou sugestão"

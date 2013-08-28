@@ -1,6 +1,5 @@
 class Subcategory < ActiveRecord::Base
-	has_many :products
+	attr_accessible :title, :category_id
 	belongs_to :category
-
-	attr_accessible :name, :description, :category_id
+	has_many :photos
 end

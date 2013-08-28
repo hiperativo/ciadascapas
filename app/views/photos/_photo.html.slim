@@ -1,0 +1,6 @@
+.photo style="height: #{user_signed_in? ? 200 : 152 }px"
+	= link_to "/produto/#{photo.id}"
+		= image_tag photo.image.url(:small), size: "200x150"
+	- if user_signed_in?
+		nav
+			= link_to glyph(:trash), photo, method: :delete, data:{action: "destroy"}
