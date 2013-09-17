@@ -1,1 +1,11 @@
-= image_tag @photo.image, size: "696x522"
+- content_for :left_column
+	#categories
+		= render(partial: "categories/category", collection: Category.all)
+		- if user_signed_in?
+			hr
+			= simple_form_for Category.new do |f|
+				= f.input :title, placeholder: "Nova Categoria", label: false
+
+figure#photo style="width:696px; height:522px; overflow: hidden; position: relative"
+	= image_tag @photo.image, width: "400"
+	figcaption= @photo.subcategory.title
