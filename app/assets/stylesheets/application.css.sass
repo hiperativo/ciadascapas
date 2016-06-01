@@ -1,208 +1,68 @@
 //= require bootstrap
-//= require dropzone
-//= require _font-awesome
+//= require fancybox
 
-@import "bourbon"
+@font-face
+	font-family: 'Museo300'
+	src: url('/assets/Museo300-Regular-webfont.eot')
+	src: url('/assets/Museo300-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('/assets/Museo300-Regular-webfont.woff') format('woff'), url('/assets/Museo300-Regular-webfont.ttf') format('truetype'), url('/assets/Museo300-Regular-webfont.svg#Museo300') format('svg')
+	font-weight: normal
+	font-style: normal
 
-$true_black: #000
-$black: #333
-$white: #fff
-$brown: #75341b
-$cyan: #2d737e
-$light_cyan: transparentize($cyan, 0.8)
+@font-face
+	font-family: 'Museo500'
+	src: url('/assets/Museo500-Regular-webfont.eot')
+	src: url('/assets/Museo500-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('/assets/Museo500-Regular-webfont.woff') format('woff'), url('/assets/Museo500-Regular-webfont.ttf') format('truetype'), url('/assets/Museo500-Regular-webfont.svg#Museo500') format('svg')
+	font-weight: normal
+	font-style: normal
 
-$tipo_a: "Futura"
-$tipo_b: "Georgia"
+@font-face
+	font-family: 'Museo700'
+	src: url('/assets/Museo700-Regular-webfont.eot')
+	src: url('/assets/Museo700-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('/assets/Museo700-Regular-webfont.woff') format('woff'), url('/assets/Museo700-Regular-webfont.ttf') format('truetype'), url('/assets/Museo700-Regular-webfont.svg#Museo700') format('svg')
+	font-weight: normal
+	font-style: normal
 
-h1, h2, h3, h4, h5
-	:color $brown
+// Paleta de cores
+$creme: 			#fffdf5
+$marrom: 			#ecdcd5
+$marrom_escuro:		#6a4537
+$azul:				#1596d4
+$black:				#192e3e
+$branco: 			#ffffff
+$rosa: 				#e4569f
+$oliva: 			#b7b633
+$salmao: 			#f37059
 
 body
-	:padding 0 15px
-	:text-align left
-	:font-family $tipo_b
-	
-	> *
-		:padding 15px 0
-	
-	> section
-		:margin-top 60px
-		
-
-		img
-			:width 100%
 
 	> header
-		:position fixed
-		:background-color $white
-		:width 100%
-		:z-index 5
-
-		> *
-			:float left
+		:padding 20px
+		// :border 1px solid #000
+		:background		$creme url("/assets/heart-pattern.gif") repeat
+		:box-shadow inset 0 0px 10px
 
 		nav
-			:margin-left 10px
-			:margin-top 12px
+			:margin-top 30px
 
-			a
-				:font-family $tipo_a
-				:color $cyan
-				:font-size 12px
-				:font-style normal
-				:text-transform uppercase
-				
-				&.active
+	> section
+		:margin-top 30px
 
-	&.full
-		:padding 0
-		> section
-			:color $white
-			:position absolute
-			:z-index -1
-			:padding 0
-			:background-color $black
-			:height 100%
-			:width 100%
-			:overflow hidden
-			:top 0
-			:margin-top 0
+h1, h2
+	:font-family 	"Museo300"
 
-		> header
-			:background-color transparent
-			:padding 15px
+h3, h4, h5
+	:font-family 	"Museo500"
 
-			a 
-				:color $white
-
-				&:hover
-					:color $white
-
-[data-action]
-	&:hover
-		:text-decoration none
-
-#produtos .photo, #photo
-	:background-color $true_black
-	:border 1px solid $light_cyan
-
-#photo
-	:width 700px
-	:margin 0 0 15px 15px
-	// :border 2px solid $black
-
-#produtos .photo
-	:margin 0 15px 15px 0
-	:float left
-	:width 200px
-	:height 150px
-
-	nav a
-		:color $white
-		:font-size 20px
-		:padding 10px
-		:display block
+h1, h2, h3, h4, h5
+	:color 			$azul
 
 
-	img
-		:display block
-		:background-color $white
-		:-webkit-filter saturate(0.0) contrast(1.5)
+.medidas img 
+	:position 		absolute
 
-		&:hover
-			:-webkit-filter saturate(0.3) contrast(2)
+.como-medir
+	:height 		160px
 
-figure
-	figcaption
-		:position absolute
-		:bottom 0px
-		:width 100%
-		:padding 10px
-		:color $white
-		:background-color transparentize($true_black, 0.4)
-
-.dropzone
-	:width 100%
-
-.dynamic-column
-	:overflow hidden
-
-section+section
-	:margin-top 15px
-
-.left-navigation
-	:width 200px
-	:position fixed
-	:margin 0 15px
-
-.nav-pills li a
-	:border-radius 0
-	&:hover
-		:background-color transparent
-		:color $black
-		:text-decoration underline
-
-a
-	:color $black
-	:font-style italic
-
-	&:hover
-		:color $black
-
-header
-	:padding-bottom 15px
-
-h2, h3, h4, h5
-	:font-family $tipo_a
-	:font-style normal
-	:font-weight bolder
-	:text-transform uppercase
-
-h2
-	:font-size 20px
-	:margin 0
-
-h3
-	:font-size 14px
-
-nav h2
-	:font-size 14px
-	:margin 0
-
-	a
-		:font-style normal
-		:color $brown
-
-ul
-	:list-style-type none
-	:padding 0
-
-	li
-
-
-.headline
-	:padding-left 40px
-	:width 650px
-	:left 40%
-	:top 40%
-	:position absolute
-	:z-index 1
-	:font-family Helvetica,Arial
-
-	h1
-		:margin-left -40px
-		:text-shadow 1px 1px 1px $black
-		:text-align left
-		:font-weight lighter
-		:color $white
-		:text-indent 40px
-
-	p
-		:font-weight lighter
-		:text-shadow 1px 1px 1px $black
-		:width 80%
-		:font-size 20px
-
-	.photo
-		width: 200px
-		height: 200px
+.fotos .thumbnail
+	:height 			160px
+	:background-color 	$branco

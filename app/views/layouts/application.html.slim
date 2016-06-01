@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 doctype html
 html
 	head
@@ -23,3 +24,60 @@ html
 				nav.left-navigation= yield :left_column
 			.dynamic-column style=("padding-left: 200px" unless @content_class) = yield
 		footer
+=======
+-# @endereco = "http://maps.google.com/maps/api/staticmap?center=Av.%20dos%20Eucaliptos,%20800%20-%20Moema&zoom=17&size=960x600&maptype=roadmap&markers=color:blue%7Clabel:Cia+das+Capas|-23.60983,-46.669328&sensor=false"
+
+- @endereco = "http://maps.google.com/?q=Avenida dos Eucaliptos, 800 — Moema — São Paulo/SP"
+
+doctype html
+html
+	head
+		- @title ||= "(11)5542-5132"
+		title= "Cia das Capas | #{@title}"
+		
+		meta name="google-site-verification" content="dP9qonr4iAN-oabrIx_Nl4WTpKH6pbH15tC3PjMFDIg"
+		meta name="description" content="Capas para sofá de sarja, stretch e jacquard. Almofadas, cortinas. Tecidos impermeáveis em moema"
+		meta name="content-type" content="text/html;charset=utf-8"
+		meta name="google-site-verification" content="7bm1YxINePuw_H-F-BXc-_GPvejoDWi1y5j6vpifxgo"
+		meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+		= stylesheet_link_tag "application"
+		= javascript_include_tag "application"
+		= csrf_meta_tag
+
+	body
+		header.row
+			= link_to image_tag("logo.gif", size: "150x70"), "/quem-somos", class: "pull-left"
+			
+			nav.pull-left
+				ul.nav.nav-pills
+					- @produtos ||= Category.order(:sort).collect(&:name).join ", "
+					- for item in "#{@produtos}, Contato".split(",") do
+						li class=is_active?(item.parameterize) = link_to item, "/#{item.parameterize}" 
+					
+			/ .pull-left
+				= link_to image_tag("como-chegar.png"), @endereco
+				= link_to "Como chegar?", @endereco, :class => "badge badge-info", :target => "blank"
+				br
+				= image_tag "telephone.png", :size => "32x32"
+				span.badge.badge-info 11 4371-5952
+			/ - unless flash[:notice].nil?
+			/ 	.alert.alert-success
+			/ 		= close_button
+			/ 		= flash[:notice]
+			
+				
+		section.container
+			= yield
+
+		footer
+			.page-header
+			.container
+				.row
+					.col-12
+						address
+							/ markdown:
+							/	#{link_to "Avenida dos Eucaliptos, 800 — Moema — São Paulo/SP", @endereco} — TEL. (11)5542-5132  
+							/	Copyright Cia das Capas ® 2012 — Todos os direitos são reservados.
+							/	Designed by #{link_to "hiperativo.co", "http://hiperativo.co"}.
+>>>>>>> master

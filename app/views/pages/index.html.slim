@@ -1,25 +1,27 @@
-.headline
-	markdown:
-		# Confeccionamos **capas para sofá** <br/> em **stretch** e **sarja** sob medida
-		
-		Somos uma loja de decoração localizada em Moema. Aqui você encontra também almofadas, porta-copos, mantas e outros artigos.
+.row
+	.col-12
+		= image_tag "slide.png"
+.row
+	.col-4
+		h2.page-header Seja bem-vindo
+		.descricao
+			markdown:
+				No mercado há mais de 13 anos, a Cia das Capas preza pela beleza e a qualidade de seus produtos que em conjunto fazem da sua casa ou escritório um lugar aconchegante e moderno. 
 
-	= link_to "Quero saber mais!", "/produtos", class: "btn btn-primary"
+				Para nós cada cliente é único. Portanto nossa preocupação é ver a sua satisfação em primeiro lugar. Nossos produtos oferecem diversas opções de personalização para deixar o seu ambiente com a sua cara.
 
-#fotos-de-capas.carousel.transition.slide data-inteval="1000" data-pause="false"
-	- Dir.chdir(Rails.root.join "app", "assets", "images")
-	- image_list = Dir.glob("fotos-de-capas/*").slice(0...3)
-	/ .carousel-indicators
-		ol
-			- image_list.each_with_index do |image, x|
-				li.active data-slide-to=(x+1)
+			= link_to "Ver Capas", "/capas-para-sofa", :class => "btn btn-primary"
 
-	.carousel-inner
-		- image_list.each_with_index do |image, x|
-			= content_tag :div, class: "item#{" active" if x==0}" do
-				= image_tag asset_path(image)
-		
-	= link_to "#fotos-de-capas", data:{slide:"prev"} do
-		span.left.carousel-control.icon-prev
-	= link_to "#fotos-de-capas", data:{slide:"next"} do
-		span.right.carousel-control.icon-next
+	.col-4
+		h2.page-header Exclusivos
+		ul.nav.nav-tabs.nav-stacked
+			li= link_to "Sarja modelada", "/capas-para-sofa"
+			li= link_to "Stretch Sob-medida", "/capas-para-sofa"
+			li= link_to "Capas para Sofá Grande", "/capas-para-sofa"
+			li= link_to "Cortinas sob-medida customizadas", "/cortinas"
+	
+	.col-4
+		h2.page-header Aqui você encontra
+		ul.nav.nav-tabs.nav-stacked
+			- for produto in Category.all do
+				li= link_to produto.name, "/#{produto.permalink}"
