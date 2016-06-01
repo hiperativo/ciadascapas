@@ -1,28 +1,29 @@
 source 'https://rubygems.org'
 
-ruby "2.0.0"
-
-gem 'thin'
+gem 'puma'
 gem 'pg'
-gem 'rails', '4.0.0'
-gem 'sqlite3'
-gem 'sass-rails', '~> 4.0.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'rails', "4.2"
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder'
 gem 'redcarpet'
 gem 'slim-rails'
 gem 'bourbon'
-gem 'font-awesome-sass-rails'
 gem 'devise'
-gem 'simple_form', "3.0.0rc"
+gem 'simple_form'
 gem 'protected_attributes'
 gem 'carrierwave'
+gem 'fog'
 gem 'mini_magick'
 gem 'font-awesome-sass-rails'
-gem 'bourbon'
+
+group :development do
+    gem "spring"
+    gem "dotenv"
+end
 
 group :doc do
 	gem 'sdoc', require: false

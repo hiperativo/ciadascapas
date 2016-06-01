@@ -11,65 +11,75 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130821133325) do
+ActiveRecord::Schema.define(version: 20131013191757) do
 
-  create_table "categories", force: true do |t|
-    t.string   "title"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "title",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug",       limit: 255
   end
 
-  create_table "contacts", force: true do |t|
-    t.string   "name"
-    t.string   "email"
+  add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "photos", force: true do |t|
+  create_table "photos", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image"
+    t.string   "image",          limit: 255
     t.integer  "subcategory_id"
+    t.string   "description",    limit: 255
   end
 
-  create_table "photos_tags", id: false, force: true do |t|
+  create_table "photos_tags", id: false, force: :cascade do |t|
     t.integer "photo_id"
     t.integer "tag_id"
   end
 
-  create_table "questions", force: true do |t|
-    t.string   "title"
-    t.string   "answer"
+  create_table "questions", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.string   "answer",     limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "subcategories", force: true do |t|
-    t.string   "title"
+  create_table "subcategories", force: :cascade do |t|
+    t.string   "title",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
+    t.string   "slug",        limit: 255
   end
 
-  create_table "tags", force: true do |t|
-    t.string   "name"
+  add_index "subcategories", ["slug"], name: "index_subcategories_on_slug", unique: true, using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0
+    t.integer  "sign_in_count",                      default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
